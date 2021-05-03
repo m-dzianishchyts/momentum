@@ -6,14 +6,67 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.min.css">
-	<title>Gulp</title>
+	<title>Momentum</title>
 </head>
 
 <body>
-	@@include("_header.html")
-	<main class="main">
+	<div class="main">
+		<div class="background"></div>
+		<div class="top-row">
+			<div class="spacer"></div>
+			<div class="weather"></div>
+		</div>
+		<div class="content">
+			<div class="content__left-aside">
+				<div class="prev-image-button button"></div>
+			</div>
+			<div class="content__center center">
+				<div class="center__top"></div>
+				<div class="center__middle">
+					<div class="center__date-time">
+						<div class="center__time time">
+							<p class="time__content">
+								<span class="time__hours"></span>
+								<span class="time__separator colon"></span>
+								<span class="time__minutes"></span>
+								<span class="time__separator colon"></span>
+								<span class="time__seconds"></span>
+							</p>
+						</div>
+						<div class="center__date date">
+							<p class="date__content">
+								<span class="date__day-of-week"></span>
+								<span class="date__separator comma"></span>
+								<span class="date__month"></span>
+								<span class="date__separator whitespace"></span>
+								<span class="date__day-of-month"></span>
+							</p>
+						</div>
+					</div>
+					<div class="center__greeting greeting">
+						<p class="greeting__total">
+							<span class="greeting__phrase">Good evening</span>
+							<span class="greeting__separator comma"></span>
+							<span class="greeting__name username" contenteditable="true" spellcheck="false"></span>
+						</p>
+					</div>
+					<div class="center__focus focus">
+						<p class="focus__question">What is your focus today?</p>
+						<p class="focus__content" contenteditable="true" spellcheck="false"></p>
+					</div>
+				</div>
+				<div class="center__bottom">
+					<div class="center__quote quote">
+						<p class="quote__content">Do good things, do not do bad things.</p>
+					</div>
+				</div>
+			</div>
+			<div class="content__right-aside">
+				<div class="next-image-button button"></div>
+			</div>
+		</div>
+		</main>
 		<script src="js/script.min.js"></script>
-	</main>
 </body>
 
 </html>

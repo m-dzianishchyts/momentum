@@ -9,23 +9,321 @@
 	}
 }
 
-@import "fonts.scss";
+@import "fonts";
+@import "style-reset";
 
 body {
-	font-size: 50px;
-	display: flex;
+	font-family: "RobotoMono";
+	color: #111;
 }
 
-span {
-	font-size: 20px;
-	@media (max-width: 767px) {
-		font-size: 15px;
+.comma {
+	&::before {
+		content: ",";
+		padding-right: 0.25em;
 	}
 }
 
-div {
+.colon {
+	&::before {
+		content: ":";
+	}
+}
+
+.whitespace {
+	&::before {
+		content: "\00a0";
+	}
+}
+
+.main {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100vw;
+	max-width: 100vw;
+	height: 100vh;
+}
+.top-row {
+	position: absolute;
+	top: 0;
+	display: flex;
+	width: 100%;
+	min-height: 100px;
+	max-height: 100px;
+	z-index: 10;
+}
+.spacer {
+	// background-color: blue;
+	flex: 1 1;
+}
+.weather {
+	width: 100px;
+	// background-color: red;
+}
+.background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url("../img/morning/morning_01.webp") center / cover;
+}
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+
+	// .content__left-aside & .content__right-aside
+	& .button {
+		width: 100%;
+		height: 100px;
+		// background-color: lightblue;
+	}
+
+	// .content__left-aside & .content__right-aside
+	&__left-aside,
+	&__right-aside {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 10%;
+		height: 100%;
+	}
+
+	// .content__left-aside
+	&__left-aside {
+	}
+
+	// .content__center
+
+	&__center {
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		flex: 1 1;
+	}
+
+	// .content__right-aside
+
+	&__right-aside {
+		// width: 10%;
+	}
+}
+.button {
+	background-color: white;
+	opacity: 0;
+
+	&:hover {
+		opacity: 0.5;
+	}
+}
+.prev-image-button {
+	background-image: url("../img/icons/icon-left-chevron.svg");
+	background-repeat: no-repeat;
+}
+.next-image-button {
+	background-image: url("../img/icons/icon-right-chevron.svg");
+	background-repeat: no-repeat;
+}
+.center {
+	// .center__top
+
+	&__top &__bottom {
+		flex: 1 1 50%;
+	}
+
+	&__top {
+	}
+
+	// .center__middle
+
+	&__middle {
+	}
+
+	// .center__date-time
+
+	&__date-time {
+		margin-bottom: 70px;
+	}
+
+	// .center__time
+
+	&__time {
+		margin-bottom: 10px;
+	}
+
+	// .center__date
+
+	&__date {
+	}
+
+	// .center__bottom
+
+	&__bottom {
+	}
+
+	// .center__greeting
+
+	&__greeting {
+		margin-bottom: 15px;
+	}
+
+	// .center__focus
+
+	&__focus {
+		width: 100%;
+	}
+
+	// .center__quote
+
+	&__quote {
+		position: absolute;
+		bottom: 20px;
+		right: 0;
+		left: 0;
+	}
+}
+.time {
+	// .time__content
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		font-size: 100px;
+		font-weight: 700;
+	}
+
+	// .time__hours
+
+	&__hours {
+		transition: all ease-in-out 0.2s 0s;
+	}
+
+	// .time__separator
+
+	&__separator {
+		margin: 0px -10px;
+	}
+
+	// .time__minutes
+
+	&__minutes {
+		transition: all ease-in-out 0.2s 0s;
+	}
+
+	// .time__seconds
+
+	&__seconds {
+		transition: all ease-in-out 0.2s 0s;
+	}
+}
+.date {
+	// .date__content
+
+	&__content {
+		display: flex;
+		justify-content: center;
+		font-size: 50px;
+		font-weight: 700;
+	}
+
+	// .date__day-of-week
+
+	&__day-of-week {
+	}
+
+	// .date__separator
+
+	&__separator {
+	}
+
+	// .date__month
+
+	&__month {
+	}
+
+	// .date__day-of-month
+
+	&__day-of-month {
+	}
+}
+.greeting__name,
+.focus__content {
+	min-width: 20px;
+	max-width: 50vw;
+	white-space: nowrap;
+	overflow-y: hidden;
+	overflow-x: auto;
+	transition: all ease 0.3s 0s;
+
+	&:focus {
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+.greeting {
+	// .greeting__total
+
+	&__total {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		line-height: 120%;
+		font-size: 40px;
+	}
+
+	// .greeting__phrase
+
+	&__phrase {
+	}
+
+	// .greeting__separator
+
+	&__separator {
+	}
+
+	// .greeting__name
+
+	&__name {
+	}
+}
+.username {
+}
+.focus {
 	font-size: 30px;
-	@media (max-width: 767px) {
-		font-size: 20px;
+	font-weight: 500;
+
+	// .focus__question
+
+	&__question {
+		line-height: 150%;
+	}
+
+	// .focus__content
+
+	&__content {
+		display: inline-block;
+		line-height: 150%;
+		border-bottom: 1px solid black;
+	}
+}
+.quote {
+	font-size: 20px;
+
+	// .quote__content
+
+	&__content {
 	}
 }
