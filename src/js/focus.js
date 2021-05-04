@@ -22,7 +22,7 @@ function hideQuestions() {
 
 function setFocus(focus) {
 	for (let focusElement of FOCUS_ELEMENTS) {
-		focusElement.innerHTML = focus;
+		focusElement.textContent = focus;
 		focusElement.style.borderBottom = "none";
 	}
 }
@@ -35,8 +35,8 @@ function getFocus() {
 function setUpFocusListeners() {
 	for (let focusElement of FOCUS_ELEMENTS) {
 		focusElement.addEventListener("focus", () => {
-			oldFocus = focusElement.innerHTML;
-			focusElement.innerHTML = "";
+			oldFocus = focusElement.textContent;
+			focusElement.textContent = "";
 			focusElement.focus();
 		});
 		focusElement.addEventListener("keypress", (event) => {
@@ -46,13 +46,13 @@ function setUpFocusListeners() {
 			}
 		})
 		focusElement.addEventListener("blur", () => {
-			let newFocus = focusElement.innerHTML;
+			let newFocus = focusElement.textContent;
 			if (!isBlank(newFocus)) {
 				localStorage.setItem(FOCUS_KEY, newFocus);
 				hideQuestions();
 				setFocus(newFocus);
 			} else {
-				focusElement.innerHTML = oldFocus;
+				focusElement.textContent = oldFocus;
 			}
 		})
 	}

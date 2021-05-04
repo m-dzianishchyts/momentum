@@ -1,14 +1,17 @@
 const USERNAME_KEY = "username";
 const USERNAME_ELEMENTS = document.getElementsByClassName("username");
-var oldUsername;
 
 document.addEventListener("DOMContentLoaded", initUsername);
 setUpUsernameListeners();
 
 function initUsername() {
 	let username = getUsername();
+	setUsername(username);
+}
+
+function setUsername(username) {
 	for (let usernameElement of USERNAME_ELEMENTS) {
-		usernameElement.innerHTML = username;
+		usernameElement.textContent = username;
 	}
 }
 
@@ -23,8 +26,7 @@ function getUsername() {
 function setUpUsernameListeners() {
 	for (let usernameElement of USERNAME_ELEMENTS) {
 		usernameElement.addEventListener("focus", () => {
-			oldUsername = usernameElement.innerHTML;
-			usernameElement.innerHTML = "";
+			usernameElement.textContent = "";
 			usernameElement.focus();
 		});
 		usernameElement.addEventListener("keypress", (event) => {
@@ -34,19 +36,19 @@ function setUpUsernameListeners() {
 			}
 		});
 		usernameElement.addEventListener("blur", () => {
-			let newUsername = usernameElement.innerHTML;
+			let newUsername = usernameElement.textContent;
+			console.log("New username:" + newUsername + ", " + newUsername.length);
+			console.log("New username is blank: " + isBlank(newUsername));
 			if (!isBlank(newUsername)) {
 				localStorage.setItem(USERNAME_KEY, newUsername);
-				for (otherUsernameElement of USERNAME_ELEMENTS) {
-					otherUsernameElement.innerHTML = newUsername;
-				}
+				setUsername(newUsername);
 			} else {
-				usernameElement.innerHTML = oldUsername;
+				usernameElement.textContent = getUsername();
 			}
 		});
 	}
 }
 
 function isBlank(str) {
-	return !str || /^\s*$/.test(str);
+	return !str || /^[\s]*$/.test(str);
 }

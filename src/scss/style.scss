@@ -11,10 +11,11 @@
 
 @import "fonts";
 @import "style-reset";
+@import "variables";
 
 body {
 	font-family: "RobotoMono";
-	color: #111;
+	color: $fontColor;
 }
 
 .comma {
@@ -68,7 +69,8 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: url("../img/morning/morning_01.webp") center / cover;
+	background-size: cover;
+	background-position: center;
 }
 .content {
 	display: flex;
@@ -79,11 +81,9 @@ body {
 	height: 100%;
 	z-index: 10;
 
-	// .content__left-aside & .content__right-aside
 	& .button {
 		width: 100%;
 		height: 100px;
-		// background-color: lightblue;
 	}
 
 	// .content__left-aside & .content__right-aside
@@ -92,7 +92,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		width: 10%;
+		width: 100px;
 		height: 100%;
 	}
 
@@ -119,20 +119,37 @@ body {
 	}
 }
 .button {
-	background-color: white;
+	transition: all ease 0.3s 0s;
+	background-color: $onHoverColor;
+	cursor: pointer;
 	opacity: 0;
 
+	// .button__image
+
+	&__image {
+		transition: all ease 0.3s 0s;
+		height: 100%;
+		width: 100%;
+	}
+
 	&:hover {
-		opacity: 0.5;
+
+		.button__image {
+			opacity: 0.6;
+		}
+		opacity: 1;
+	}
+
+	&:active {
+
+		.button__image {
+			opacity: 0.8;
+		}
 	}
 }
 .prev-image-button {
-	background-image: url("../img/icons/icon-left-chevron.svg");
-	background-repeat: no-repeat;
 }
 .next-image-button {
-	background-image: url("../img/icons/icon-right-chevron.svg");
-	background-repeat: no-repeat;
 }
 .center {
 	// .center__top
@@ -266,7 +283,7 @@ body {
 	transition: all ease 0.3s 0s;
 
 	&:focus {
-		background-color: rgba(255, 255, 255, 0.3);
+		background-color: $onEditColor;
 	}
 
 	&::-webkit-scrollbar {
