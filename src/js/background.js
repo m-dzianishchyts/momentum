@@ -1,34 +1,94 @@
 const TimeOfDay = Object.freeze({
-	MORNING: Object.freeze({ ordinal: 1, name: "morning", backgroundsAmount: 10 }),
-	AFTERNOON: Object.freeze({ ordinal: 2, name: "afternoon", backgroundsAmount: 10 }),
-	EVENING: Object.freeze({ ordinal: 3, name: "evening", backgroundsAmount: 10 }),
-	NIGHT: Object.freeze({ ordinal: 4, name: "night", backgroundsAmount: 10 })
-})
+	NIGHT: Object.freeze({ name: "night", backgroundsAmount: 9 }),
+	MORNING: Object.freeze({ name: "morning", backgroundsAmount: 10 }),
+	AFTERNOON: Object.freeze({ name: "afternoon", backgroundsAmount: 8 }),
+	EVENING: Object.freeze({ name: "evening", backgroundsAmount: 8 })
+});
 const IMG_PATH = "../img/";
 const BACKGROUND_ELEMENT = document.querySelector(".background");
+const HOURS_PER_DAY = 24;
 
-document.addEventListener("DOMContentLoaded", initBackground);
-setUpUsernameListeners();
+var backgroundsArray = new Array();
+var hours;
+
+document.addEventListener("DOMContentLoaded", () => {
+	prepareBackgrounds();
+	initBackground();
+	setInterval(updateBackground, 1000);
+	setUpButtonsListeners();
+});
+
+function prepareBackgrounds() {
+	let timesOfDay = Object.values(TimeOfDay);
+	for (let timeOfDay of timesOfDay) {
+		let backgroundsIDs = Array.from(Array(timeOfDay.backgroundsAmount).keys());
+		shuffleArray(backgroundsIDs);
+		backgroundsIDs = backgroundsIDs.slice(0, HOURS_PER_DAY / timesOfDay.length);
+		let backgroundsPaths = backgroundsIDs.map((backgroundID) => {
+			let twoDigitBackGroundID = backgroundID.toString().padStart(2, "0");
+			return `${timeOfDay.name}/${timeOfDay.name}_${twoDigitBackGroundID}.webp`;
+		});
+		backgroundsArray = backgroundsArray.concat(backgroundsPaths);
+	}
+}
+
+function shuffleArray(array) {
+	for (let i = array.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[array[i], array[j]] = [array[j], array[i]];
+	}
+}
 
 function initBackground() {
-	let timeOfDay = defineTimeOfDay();
-	let backgroundNumber = Math.floor(Math.random() * timeOfDay.backgroundsAmount) + 1;
-	let twoDigitBackGroundNumber = backgroundNumber.toString().padStart(2, "0");
-	let backgroundFilePath = IMG_PATH + timeOfDay.name + "/" + timeOfDay.name + "_" + twoDigitBackGroundNumber + ".webp";
+	let now = new Date();
+	hours = now.getHours();
+	BACKGROUND_ELEMENT.addEventListener("ready", () => BACKGROUND_ELEMENT.style.opacity = 1);
+	loadBackground(hours);
+}
+
+function loadBackground(hours) {
+	currentBackground = backgroundsArray[hours];
+	let backgroundFilePath = IMG_PATH + currentBackground;
 	BACKGROUND_ELEMENT.style.backgroundImage = `url(${backgroundFilePath})`;
 }
 
-function defineTimeOfDay() {
+function updateBackground() {
 	let now = new Date();
-	let hours = now.getHours();
-	if (hours < 6) {
-		return TimeOfDay.NIGHT;
+	let seconds = now.getSeconds();
+	let minutes = now.getMinutes();
+	if (minutes === 0 && seconds == 0) {
+		console.log("Update background.");
+		hours = now.getHours();
+		loadBackground(hours);
+	} else {
+		console.log("Nothing to update.");
 	}
-	if (hours < 12) {
-		return TimeOfDay.MORNING;
+}
+
+function setUpButtonsListeners() {
+	let nextBackgroundButtonElements = document.querySelectorAll(".next-image-button");
+	for (let nextBackgroundButtonElement of nextBackgroundButtonElements) {
+		nextBackgroundButtonElement.addEventListener("click", () => {
+			showNextBackground();
+		})
 	}
-	if (hours < 18) {
-		return TimeOfDay.AFTERNOON;
+	let prevBackgroundButtonElements = document.querySelectorAll(".prev-image-button");
+	for (let prevBackgroundButtonElement of prevBackgroundButtonElements) {
+		prevBackgroundButtonElement.addEventListener("click", () => {
+			showPrevBackground();
+		})
 	}
-	return TimeOfDay.EVENING
+}
+
+function showNextBackground() {
+	hours = (hours + 1) % HOURS_PER_DAY;
+	loadBackground(hours);
+}
+
+function showPrevBackground() {
+	hours--;
+	if (hours < 0) {
+		hours = HOURS_PER_DAY - 1;
+	}
+	loadBackground(hours);
 }
