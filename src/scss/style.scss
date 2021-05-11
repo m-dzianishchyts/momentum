@@ -1,6 +1,7 @@
 @import "_fonts";
 @import "_style-reset";
 @import "_variables";
+@import "_icomoon-icons";
 @import "_weather-icons";
 
 @keyframes rotation {
@@ -79,7 +80,8 @@ button {
 	&__top {
 		display: flex;
 		position: absolute;
-		top: 0;
+		top: 5px;
+		right: 10px;
 		width: 100%;
 		z-index: 10;
 	}
@@ -147,7 +149,8 @@ button {
 
 	// top__weather
 	.weather {
-		width: 100px;
+		opacity: 0;
+		transition: opacity ease 1s 0s;
 	}
 }
 
@@ -155,7 +158,7 @@ button {
 	cursor: pointer;
 	transition: all ease 0.3s 0s;
 	background-color: $onHoverColor;
-	color: $fontDarkColor;
+	color: $fontDarkTransparentColor;
 
 	// .button__image
 	&__image {
@@ -174,6 +177,8 @@ button {
 
 .prev-image-button,
 .next-image-button {
+	font-weight: bolder;
+	font-size: 500%;
 	opacity: 0;
 
 	&:hover {
@@ -287,21 +292,7 @@ button {
 
 .greeting__name,
 .focus__content {
-	min-width: 20px;
 	max-width: 50%;
-	scrollbar-width: none;
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: auto;
-	transition: all ease 0.3s 0s;
-
-	&:focus {
-		background-color: $onEditColor;
-	}
-
-	&::-webkit-scrollbar {
-		display: none;
-	}
 }
 
 .greeting {
@@ -332,6 +323,21 @@ button {
 
 .editable {
 	cursor: pointer;
+	min-width: 20px;
+	scrollbar-width: none;
+	white-space: nowrap;
+	overflow-y: hidden;
+	overflow-x: auto;
+	transition: all ease 0.3s 0s;
+	border-radius: 5px;
+
+	&:focus {
+		background-color: $onEditColor;
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .focus {
@@ -348,6 +354,70 @@ button {
 		display: inline-block;
 		line-height: 150%;
 		border-bottom: 1px solid black;
+	}
+}
+
+.weather {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+
+	// .weather__icon-container
+	&__icon-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		min-width: 120px;
+	}
+
+	// .weather__parameters-container
+	&__parameters-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		text-align: left;
+		margin-left: 10px;
+	}
+
+	// .weather__icon
+	&__icon {
+	}
+
+	// .weather__temperature
+	&__temperature {
+		&::after {
+			content: "\00B0"+ "C";
+		}
+	}
+
+	// .weather__wind-speed
+	&__wind-speed {
+		&::after {
+			content: " m/s";
+		}
+	}
+
+	// .weather__wind-direction
+	&__wind-direction {
+	}
+
+	// .weather__humidity
+	&__humidity {
+		&::after {
+			content: "%";
+		}
+	}
+
+	// .weather__description
+	&__description {
+		margin-bottom: 5px;
+	}
+
+	// .weather__city
+	&__city {
+		max-width: 100%;
+		display: inline;
+		line-height: 150%;
 	}
 }
 
@@ -410,7 +480,7 @@ button {
 	font-size: 0;
 	opacity: 0;
 	transition: all ease 0.5s 0.1s;
-
+	font-size: 110%;
 	& .button__image {
 		width: 75%;
 		height: 75%;

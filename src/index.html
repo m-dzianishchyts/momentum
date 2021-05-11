@@ -17,17 +17,25 @@
 		<div class="content">
 			<div class="content__top top">
 				<div class="top__spacer"></div>
-				<div class="top__weather">
-					<div class="weather__icon"></div>
-					<div class="weather__temperature"></div>
-					<div class="weather__description"></div>
+				<div class="top__weather weather">
+					<div class="weather__icon-container">
+						<i class="weather__icon owf owf-5x"></i>
+						<div class="weather__parameters-container">
+							<span class="weather__temperature"></span>
+							<div>
+								<span class="weather__wind-speed"></span>
+								<span class="weather__wind-direction"></span>
+							</div>
+							<span class="weather__humidity"></span>
+						</div>
+					</div>
+					<span class="weather__description">Pretty good</span>
+					<span class="weather__city editable" contenteditable="true" spellcheck="false">Minsk</span>
 				</div>
 			</div>
 			<div class="content__main">
 				<div class="content__left-aside">
-					<button class="prev-image-button button">
-						<img class="button__image" src="img/icons/icon-left-chevron.svg" alt="">
-					</button>
+					<button class="prev-image-button button icon-left-arrow"></button>
 				</div>
 				<div class="content__center center">
 					<div class="center__date-time">
@@ -64,18 +72,14 @@
 					</div>
 				</div>
 				<div class="content__right-aside">
-					<button class="next-image-button button">
-						<img class="button__image" src="img/icons/icon-right-chevron.svg" alt="">
-					</button>
+					<button class="next-image-button button icon-right-arrow"></button>
 				</div>
 			</div>
 			<div class="content__bottom">
 				<div class="bottom__quote quote">
 					<blockquote class="quote__content"></blockquote>
 					<div class="bottom__quote-author-area">
-						<button id="quote-reload-button" class="button">
-							<img class="button__image" src="img/icons/icon-reload.svg" alt="">
-						</button>
+						<button id="quote-reload-button" class="button icon-reload"></button>
 						<figcaption class="quote__author"></figcaption>
 					</div>
 				</div>

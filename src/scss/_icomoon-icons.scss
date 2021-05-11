@@ -1,0 +1,84 @@
+@import "_icomoon-variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?lzcek');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?lzcek#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff2?lzcek') format('woff2'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?lzcek##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  // use !important to prevent issues with browser extensions that change fonts
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  // Better Font Rendering
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-e-wind {
+  &:before {
+    content: $icon-e-wind; 
+  }
+}
+.icon-ne-wind {
+  &:before {
+    content: $icon-ne-wind; 
+  }
+}
+.icon-n-wind {
+  &:before {
+    content: $icon-n-wind; 
+  }
+}
+.icon-nw-wind {
+  &:before {
+    content: $icon-nw-wind; 
+  }
+}
+.icon-se-wind {
+  &:before {
+    content: $icon-se-wind; 
+  }
+}
+.icon-s-wind {
+  &:before {
+    content: $icon-s-wind; 
+  }
+}
+.icon-sw-wind {
+  &:before {
+    content: $icon-sw-wind; 
+  }
+}
+.icon-w-wind {
+  &:before {
+    content: $icon-w-wind; 
+  }
+}
+.icon-reload {
+  &:before {
+    content: $icon-reload; 
+  }
+}
+.icon-left-arrow {
+  &:before {
+    content: $icon-left-arrow; 
+  }
+}
+.icon-right-arrow {
+  &:before {
+    content: $icon-right-arrow; 
+  }
+}
+
