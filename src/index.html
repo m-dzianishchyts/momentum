@@ -17,13 +17,17 @@
 		<div class="content">
 			<div class="content__top top">
 				<div class="top__spacer"></div>
-				<div class="top__weather"></div>
+				<div class="top__weather">
+					<div class="weather__icon"></div>
+					<div class="weather__temperature"></div>
+					<div class="weather__description"></div>
+				</div>
 			</div>
 			<div class="content__main">
 				<div class="content__left-aside">
-					<div class="prev-image-button button">
+					<button class="prev-image-button button">
 						<img class="button__image" src="img/icons/icon-left-chevron.svg" alt="">
-					</div>
+					</button>
 				</div>
 				<div class="content__center center">
 					<div class="center__date-time">
@@ -50,7 +54,8 @@
 						<p class="greeting__total">
 							<span class="greeting__phrase"></span>
 							<span class="greeting__separator comma"></span>
-							<span class="greeting__name username editable" contenteditable="true" spellcheck="false"></span>
+							<span class="greeting__name username editable" contenteditable="true"
+								spellcheck="false"></span>
 						</p>
 					</div>
 					<div class="center__focus focus">
@@ -59,15 +64,20 @@
 					</div>
 				</div>
 				<div class="content__right-aside">
-					<div class="next-image-button button">
+					<button class="next-image-button button">
 						<img class="button__image" src="img/icons/icon-right-chevron.svg" alt="">
-					</div>
+					</button>
 				</div>
 			</div>
 			<div class="content__bottom">
 				<div class="bottom__quote quote">
 					<blockquote class="quote__content"></blockquote>
-					<figcaption class="quote__author"></figcaption>
+					<div class="bottom__quote-author-area">
+						<button id="quote-reload-button" class="button">
+							<img class="button__image" src="img/icons/icon-reload.svg" alt="">
+						</button>
+						<figcaption class="quote__author"></figcaption>
+					</div>
 				</div>
 			</div>
 		</div>
