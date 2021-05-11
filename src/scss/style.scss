@@ -123,6 +123,9 @@ body {
 
 	// .content__bottom
 	&__bottom {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		position: absolute;
 		width: 100%;
 		bottom: 10px;
@@ -343,10 +346,16 @@ body {
 
 	// .bottom__quote
 	&__quote {
+		width: 50%;
 
-		// .bottom__quote .quote__content && .bottom__quote .quote__author
-		& .quote__content, .quote__author {
-			transition: all ease 0.3s 0.1s;
+		// .bottom__quote .quote__content
+		& .quote__content {
+			transition: all ease 1s 0.1s;
+		}
+
+		// .bottom__quote .quote__author
+		& .quote__author {
+			transition: all ease 0.5s 0.1s;
 		}
 
 		// .bottom__quote .quote__author
@@ -370,7 +379,7 @@ body {
 }
 
 .quote {
-	font-size: 20px;
+	font-size: 16px;
 
 	// .quote__content
 	&__content {

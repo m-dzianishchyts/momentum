@@ -2,3 +2,4 @@
 @@include("username.js");
 @@include("focus.js");
 @@include("background.js");
+@@include("quote.js");
