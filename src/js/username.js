@@ -81,8 +81,6 @@ function setUpUsernameListeners() {
 		});
 		usernameElement.addEventListener("blur", () => {
 			let newUsername = usernameElement.textContent;
-			console.log("New username:" + newUsername + ", " + newUsername.length);
-			console.log("New username is blank: " + isBlank(newUsername));
 			if (!isBlank(newUsername)) {
 				localStorage.setItem(USERNAME_KEY, newUsername);
 				setUsername(newUsername);

@@ -57,11 +57,8 @@ function updateBackground() {
 	let seconds = now.getSeconds();
 	let minutes = now.getMinutes();
 	if (minutes === 0 && seconds == 0) {
-		console.log("Update background.");
 		hours = now.getHours();
 		loadBackground(hours);
-	} else {
-		console.log("Nothing to update.");
 	}
 }
 
