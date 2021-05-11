@@ -133,6 +133,7 @@ body {
 }
 
 .top {
+
 	// top__spacer
 	&__spacer {
 		flex: 1 1;
@@ -180,6 +181,7 @@ body {
 }
 
 .center {
+
 	// .center__top && .center__bottom
 	&__top,
 	&__bottom {
@@ -220,6 +222,7 @@ body {
 }
 
 .time {
+
 	// .time__content
 	&__content {
 		display: flex;
@@ -250,6 +253,7 @@ body {
 }
 
 .date {
+
 	// .date__content
 	&__content {
 		display: flex;
@@ -259,7 +263,6 @@ body {
 	}
 
 	// .date__day-of-week
-
 	&__day-of-week {
 	}
 
@@ -279,7 +282,8 @@ body {
 .greeting__name,
 .focus__content {
 	min-width: 20px;
-	max-width: 50vw;
+	max-width: 50%;
+    scrollbar-width: none;
 	white-space: nowrap;
 	overflow-y: hidden;
 	overflow-x: auto;
@@ -295,7 +299,7 @@ body {
 }
 
 .greeting {
-
+	
 	// .greeting__total
 	&__total {
 		display: flex;
@@ -343,7 +347,6 @@ body {
 }
 
 .bottom {
-
 	// .bottom__quote
 	&__quote {
 		width: 50%;
@@ -365,7 +368,6 @@ body {
 		}
 
 		&:hover {
-
 			& .quote__content {
 				margin-bottom: 5px;
 			}
