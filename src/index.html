@@ -14,19 +14,18 @@
 		<div class="background">
 			<div class="background__filter"></div>
 		</div>
-		<div class="top-row">
-			<div class="spacer"></div>
-			<div class="weather"></div>
-		</div>
 		<div class="content">
-			<div class="content__left-aside">
-				<div class="prev-image-button button">
-					<img class="button__image" src="img/icons/icon-left-chevron.svg" alt="">
-				</div>
+			<div class="content__top top">
+				<div class="top__spacer"></div>
+				<div class="top__weather"></div>
 			</div>
-			<div class="content__center center">
-				<div class="center__top"></div>
-				<div class="center__middle">
+			<div class="content__main">
+				<div class="content__left-aside">
+					<div class="prev-image-button button">
+						<img class="button__image" src="img/icons/icon-left-chevron.svg" alt="">
+					</div>
+				</div>
+				<div class="content__center center">
 					<div class="center__date-time">
 						<div class="center__time time">
 							<p class="time__content">
@@ -51,23 +50,24 @@
 						<p class="greeting__total">
 							<span class="greeting__phrase"></span>
 							<span class="greeting__separator comma"></span>
-							<span class="greeting__name username" contenteditable="true" spellcheck="false"></span>
+							<span class="greeting__name username editable" contenteditable="true" spellcheck="false"></span>
 						</p>
 					</div>
 					<div class="center__focus focus">
 						<p class="focus__question">What is your focus today?</p>
-						<p class="focus__content" contenteditable="true" spellcheck="false"></p>
+						<p class="focus__content editable" contenteditable="true" spellcheck="false"></p>
 					</div>
 				</div>
-				<div class="center__bottom">
-					<div class="center__quote quote">
-						<p class="quote__content">Do good things, do not do bad things.</p>
+				<div class="content__right-aside">
+					<div class="next-image-button button">
+						<img class="button__image" src="img/icons/icon-right-chevron.svg" alt="">
 					</div>
 				</div>
 			</div>
-			<div class="content__right-aside">
-				<div class="next-image-button button">
-					<img class="button__image" src="img/icons/icon-right-chevron.svg" alt="">
+			<div class="content__bottom">
+				<div class="bottom__quote quote">
+					<blockquote class="quote__content">Do good things, do not do bad things.</blockquote>
+					<figcaption class="quote__author">Jason Statham</figcaption>
 				</div>
 			</div>
 		</div>
