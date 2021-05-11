@@ -1,21 +1,24 @@
-@mixin font($font_name, $file_name, $weight, $style) {
-	@font-face {
-		font-family: $font_name;
-		font-display: swap;
-		src: url("../fonts/#{$file_name}.woff") format("woff"),
-			url("../fonts/#{$file_name}.woff2") format("woff2");
-		font-weight: #{$weight};
-		font-style: #{$style};
+@import "_fonts";
+@import "_style-reset";
+@import "_variables";
+@import "_weather-icons";
+
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
 	}
 }
-
-@import "fonts";
-@import "style-reset";
-@import "variables";
 
 body {
 	font-family: "RobotoMono";
 	color: $fontLightColor;
+}
+
+button {
+	background: none;
 }
 
 .comma {
@@ -35,6 +38,10 @@ body {
 	&::before {
 		content: "\00a0";
 	}
+}
+
+.rotating {
+	animation: rotation 1s linear infinite;
 }
 
 .main {
@@ -133,7 +140,6 @@ body {
 }
 
 .top {
-
 	// top__spacer
 	&__spacer {
 		flex: 1 1;
@@ -146,29 +152,32 @@ body {
 }
 
 .button {
+	cursor: pointer;
 	transition: all ease 0.3s 0s;
 	background-color: $onHoverColor;
-	cursor: pointer;
-	opacity: 0;
+	color: $fontDarkColor;
 
 	// .button__image
 	&__image {
 		transition: all ease 0.3s 0s;
+		opacity: 0.6;
 		height: 100%;
 		width: 100%;
-	}
-
-	&:hover {
-		.button__image {
-			opacity: 0.6;
-		}
-		opacity: 1;
 	}
 
 	&:active {
 		.button__image {
 			opacity: 0.8;
 		}
+	}
+}
+
+.prev-image-button,
+.next-image-button {
+	opacity: 0;
+
+	&:hover {
+		opacity: 1;
 	}
 }
 
@@ -181,7 +190,6 @@ body {
 }
 
 .center {
-
 	// .center__top && .center__bottom
 	&__top,
 	&__bottom {
@@ -222,7 +230,6 @@ body {
 }
 
 .time {
-
 	// .time__content
 	&__content {
 		display: flex;
@@ -253,7 +260,6 @@ body {
 }
 
 .date {
-
 	// .date__content
 	&__content {
 		display: flex;
@@ -283,7 +289,7 @@ body {
 .focus__content {
 	min-width: 20px;
 	max-width: 50%;
-    scrollbar-width: none;
+	scrollbar-width: none;
 	white-space: nowrap;
 	overflow-y: hidden;
 	overflow-x: auto;
@@ -299,7 +305,6 @@ body {
 }
 
 .greeting {
-	
 	// .greeting__total
 	&__total {
 		display: flex;
@@ -347,8 +352,20 @@ body {
 }
 
 .bottom {
+	// .bottom__quote-author-area
+	&__quote-author-area {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: center;
+		align-items: center;
+	}
+
 	// .bottom__quote
 	&__quote {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		width: 50%;
 
 		// .bottom__quote .quote__content
@@ -359,10 +376,6 @@ body {
 		// .bottom__quote .quote__author
 		& .quote__author {
 			transition: all ease 0.5s 0.1s;
-		}
-
-		// .bottom__quote .quote__author
-		& .quote__author {
 			font-size: 0;
 			opacity: 0;
 		}
@@ -372,11 +385,35 @@ body {
 				margin-bottom: 5px;
 			}
 
-			& .quote__author {
-				font-size: 80%;
-				opacity: 0.8;
+			& .bottom__quote-author-area {
+				& .quote__author {
+					font-size: 80%;
+					opacity: 0.8;
+				}
+
+				& #quote-reload-button {
+					width: 24px;
+					height: 24px;
+					opacity: 1;
+				}
 			}
 		}
+	}
+}
+
+#quote-reload-button {
+	flex: none;
+	margin-left: 10px;
+	border-radius: 50%;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	opacity: 0;
+	transition: all ease 0.5s 0.1s;
+
+	& .button__image {
+		width: 75%;
+		height: 75%;
 	}
 }
 
