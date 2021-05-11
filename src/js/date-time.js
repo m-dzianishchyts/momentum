@@ -149,7 +149,7 @@ function updateDate() {
 			dayOfWeekElement.style.opacity = 0;
 		}
 		setTimeout(() => {
-			if (monthElement) {
+			if (monthUpdateNeeded) {
 				monthElement.style.opacity = 1;
 				monthElement.innerHTML = dateValues.month;
 			}
@@ -157,7 +157,7 @@ function updateDate() {
 				dayOfMonthElement.style.opacity = 1;
 				dayOfMonthElement.innerHTML = dateValues.dayOfMonth;
 			}
-			if (monthUpdateNeeded) {
+			if (dayOfWeekUpdateNeeded) {
 				dayOfWeekElement.style.opacity = 1;
 				dayOfWeekElement.innerHTML = dateValues.dayOfWeek;
 			}
