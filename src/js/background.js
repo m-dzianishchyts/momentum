@@ -1,7 +1,7 @@
 const TimeOfDay = Object.freeze({
 	NIGHT: Object.freeze({ name: "night", backgroundsAmount: 9 }),
 	MORNING: Object.freeze({ name: "morning", backgroundsAmount: 10 }),
-	AFTERNOON: Object.freeze({ name: "afternoon", backgroundsAmount: 8 }),
+	AFTERNOON: Object.freeze({ name: "afternoon", backgroundsAmount: 7 }),
 	EVENING: Object.freeze({ name: "evening", backgroundsAmount: 8 })
 });
 const IMG_PATH = "../img/";
