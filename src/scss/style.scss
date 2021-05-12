@@ -415,10 +415,20 @@ button {
 
 	// .weather__city
 	&__city {
-		max-width: 100%;
-		display: inline;
+		// max-width: 100%;
+		// display: contents;
 		line-height: 150%;
 	}
+}
+
+.city {
+	display: flex;
+	flex-direction: row;
+
+		// .city__spacer
+		&__spacer {
+			flex: 1 1;
+		}
 }
 
 .bottom {
