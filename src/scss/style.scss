@@ -162,20 +162,10 @@ button {
 	cursor: pointer;
 	transition: all ease 0.3s 0s;
 	background-color: $onHoverColor;
-	color: $fontDarkTransparentColor;
-
-	// .button__image
-	&__image {
-		transition: all ease 0.3s 0s;
-		opacity: 0.6;
-		height: 100%;
-		width: 100%;
-	}
+	color: $fontDarkColor07;
 
 	&:active {
-		.button__image {
-			opacity: 0.8;
-		}
+		color: $fontDarkColor09;
 	}
 }
 
