@@ -1,0 +1,206 @@
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+	.content {
+		// .content__center
+		&__center {
+			width: 86%;
+		}
+
+		&__left-aside,
+		&__right-aside {
+			width: 7%;
+		}
+	}
+}
+
+/* Portrait tablets and medium desktops */
+@media (max-width: 1199px) {
+	.center {
+		// .center__date-time
+		&__date-time {
+			margin-bottom: 40px;
+		}
+	}
+
+	.time {
+		font-size: 6rem;
+	}
+
+	.date {
+		font-size: 3.5rem;
+	}
+
+	.greeting,
+	.focus {
+		font-size: 2.5rem;
+	}
+}
+
+/* Portrait tablets and small desktops */
+@media (max-width: 1025px) {
+	.content {
+		&__left-aside,
+		&__right-aside {
+			& .button {
+				height: 70px;
+				font-size: 3.5rem;
+			}
+		}
+	}
+	.prev-image-button,
+	.next-image-button {
+		opacity: 1;
+	}
+
+	.quote {
+		// .quote__content
+		& .quote__content {
+			margin-bottom: 5px;
+		}
+
+		// .quote__author-area
+		& .bottom__quote-author-area {
+			& .quote__author {
+				font-size: 1rem;
+				opacity: 0.8;
+			}
+
+			& #quote-reload-button {
+				width: 24px;
+				height: 24px;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+		.center {
+		// .center__date-time
+		&__date-time {
+			margin-bottom: 30px;
+		}
+		
+		// .center__greeting
+		&__greeting {
+			margin-bottom: 10px;
+		}
+	}
+
+	.time {
+		font-size: 4.5rem;
+	}
+
+	.date {
+		font-size: 2.5rem;
+	}
+
+	.greeting,
+	.focus {
+		font-size: 2rem;
+	}
+
+	.bottom {
+		// .bottom__quote
+		&__quote {
+			width: 70%;
+		}
+	}
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	.content {
+		&__left-aside,
+		&__right-aside {
+			& .button {
+				height: 60px;
+				font-size: 2.7rem;
+			}
+		}
+	}
+	.center {
+		// .center__date-time
+		&__date-time {
+			margin-bottom: 25px;
+		}
+		
+		// .center__greeting
+		&__greeting {
+			margin-bottom: 7px;
+		}
+	}
+
+	.time {
+		font-size: 3.5rem;
+		
+		// .time__separator
+		&__separator {
+			margin: 0 -5px;
+		}
+	}
+
+	.date {
+		font-size: 2rem;
+	}
+
+	.greeting,
+	.focus {
+		font-size: 1.5rem;
+	}
+
+	.weather,
+	.quote__content {
+		font-size: 1rem;
+	}
+
+	.bottom {
+		// .bottom__quote
+		&__quote {
+			width: 90%;
+		}
+	}
+
+	.greeting__name,
+	.focus__content {
+		max-width: 90%;
+	}
+}
+
+/* Album phones and smaller */
+@media (max-width: 380px) {
+	.content {
+		&__left-aside,
+		&__right-aside {
+			& .button {
+				height: 50px;
+				font-size: 2.3rem;
+			}
+		}
+	}
+	.center {
+		// .center__date-time
+		&__date-time {
+			margin-bottom: 20px;
+		}
+	}
+
+	.time {
+		font-size: 2.5rem;
+
+		// .time__separator
+		&__separator {
+			margin: 0 -3px;
+		}
+	}
+
+	.date {
+		font-size: 1.5rem;
+	}
+
+	.greeting,
+	.focus {
+		font-size: 1rem;
+	}
+}

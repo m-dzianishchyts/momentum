@@ -3,6 +3,7 @@
 @import "_variables";
 @import "_icomoon-icons";
 @import "_weather-icons";
+@import "_media";
 
 @keyframes rotation {
 	from {
@@ -104,10 +105,11 @@ button {
 	// .content__left-aside & .content__right-aside
 	&__left-aside,
 	&__right-aside {
+		// background-color: $onHoverColor;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		width: 100px;
+		width: 10%;
 		height: 100%;
 	}
 
@@ -119,6 +121,7 @@ button {
 	&__center {
 		position: relative;
 		height: 100%;
+		width: 80%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -149,6 +152,7 @@ button {
 
 	// top__weather
 	.weather {
+		max-width: 50%;
 		opacity: 0;
 		transition: opacity ease 1s 0s;
 	}
@@ -178,7 +182,7 @@ button {
 .prev-image-button,
 .next-image-button {
 	font-weight: bolder;
-	font-size: 500%;
+	font-size: 5rem;
 	opacity: 0;
 
 	&:hover {
@@ -195,6 +199,10 @@ button {
 }
 
 .center {
+	& > * {
+		max-width: 100%;
+	}
+
 	// .center__top && .center__bottom
 	&__top,
 	&__bottom {
@@ -235,12 +243,13 @@ button {
 }
 
 .time {
+	font-size: 7rem;
+	font-weight: 700;
+
 	// .time__content
 	&__content {
 		display: flex;
 		justify-content: center;
-		font-size: 100px;
-		font-weight: 700;
 	}
 
 	// .time__hours
@@ -265,12 +274,13 @@ button {
 }
 
 .date {
+	font-size: 4rem;
+	font-weight: 700;
+
 	// .date__content
 	&__content {
 		display: flex;
 		justify-content: center;
-		font-size: 50px;
-		font-weight: 700;
 	}
 
 	// .date__day-of-week
@@ -290,19 +300,23 @@ button {
 	}
 }
 
-.greeting__name,
-.focus__content {
+.greeting__name {
 	max-width: 50%;
 }
 
+.focus__content {
+	max-width: 70%;
+}
+
 .greeting {
+	font-size: 3rem;
+
 	// .greeting__total
 	&__total {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
 		line-height: 120%;
-		font-size: 40px;
 	}
 
 	// .greeting__phrase
@@ -341,7 +355,7 @@ button {
 }
 
 .focus {
-	font-size: 30px;
+	font-size: 3rem;
 	font-weight: 500;
 
 	// .focus__question
@@ -360,7 +374,7 @@ button {
 .weather {
 	display: flex;
 	flex-direction: column;
-	font-size: 16px;
+	font-size: 1.2rem;
 
 	// .weather__icon-container
 	&__icon-container {
@@ -425,10 +439,10 @@ button {
 	display: flex;
 	flex-direction: row;
 
-		// .city__spacer
-		&__spacer {
-			flex: 1 1;
-		}
+	// .city__spacer
+	&__spacer {
+		flex: 1 1;
+	}
 }
 
 .bottom {
@@ -467,7 +481,7 @@ button {
 
 			& .bottom__quote-author-area {
 				& .quote__author {
-					font-size: 80%;
+					font-size: 1rem;
 					opacity: 0.8;
 				}
 
@@ -490,7 +504,7 @@ button {
 	font-size: 0;
 	opacity: 0;
 	transition: all ease 0.5s 0.1s;
-	font-size: 110%;
+	font-size: 1.1rem;
 	& .button__image {
 		width: 75%;
 		height: 75%;
@@ -498,10 +512,9 @@ button {
 }
 
 .quote {
-	font-size: 16px;
-
 	// .quote__content
 	&__content {
+		font-size: 1.2rem;
 	}
 
 	// .quote__author
