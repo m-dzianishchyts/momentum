@@ -76,12 +76,12 @@
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-		.center {
+	.center {
 		// .center__date-time
 		&__date-time {
 			margin-bottom: 30px;
 		}
-		
+
 		// .center__greeting
 		&__greeting {
 			margin-bottom: 10px;
@@ -107,6 +107,23 @@
 			width: 70%;
 		}
 	}
+
+	.top {
+		// .top__weather
+		&__weather {
+			max-width: 35%;
+		}
+	}
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 520px) {
+	.top {
+		// .top__weather
+		&__weather {
+			max-width: 40%;
+		}
+	}
 }
 
 /* Landscape phones and smaller */
@@ -125,7 +142,7 @@
 		&__date-time {
 			margin-bottom: 25px;
 		}
-		
+
 		// .center__greeting
 		&__greeting {
 			margin-bottom: 7px;
@@ -134,7 +151,7 @@
 
 	.time {
 		font-size: 3.5rem;
-		
+
 		// .time__separator
 		&__separator {
 			margin: 0 -5px;
@@ -165,6 +182,13 @@
 	.greeting__name,
 	.focus__content {
 		max-width: 90%;
+	}
+
+	.top {
+		// .top__weather
+		&__weather {
+			max-width: 50%;
+		}
 	}
 }
 
