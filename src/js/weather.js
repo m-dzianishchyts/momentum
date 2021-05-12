@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		loadWeather(0);
 	}
 	WEATHER_CONTAINER.style.opacity = 1;
+	setInterval(updateWeather, 1000);
 });
 
 function getCity() {
@@ -117,6 +118,15 @@ function setUpCityListener() {
 			CITY_ELEMENT.textContent = getCity();
 		}
 	});
+}
+
+function updateWeather() {
+	let now = new Date();
+	let seconds = now.getSeconds();
+	let minutes = now.getMinutes();
+	if (minutes === 0 && seconds == 0) {
+		loadWeather(1000);
+	}
 }
 
 function isBlank(str) {
